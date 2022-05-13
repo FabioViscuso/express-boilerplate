@@ -1,0 +1,27 @@
+.btn {
+    width: max-content;
+    padding: var(--padding-s);
+    color: var(--accent-color);
+    background-color: var(--neutral-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    transition: all .16s ease;
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 1.6rem;
+    margin: 3rem;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    box-shadow: -2px -2px 6px 1px rgb(100, 100, 100), 3px 3px 4px 4px rgba(0, 0, 0, .6);
+}

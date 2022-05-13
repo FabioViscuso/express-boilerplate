@@ -1,0 +1,23 @@
+/* resets.css contains global resets */
+@import "css/resets.css";
+
+/* root.css contains theming styles and variables */
+@import "css/theme.css";
+
+/* layout.css contains main components style and structure */
+@import "css/layout.css";
+
+/* components.css contains smaller components style and structure */
+@import "css/components.css";
+
+/* images.css contains image classes, either via background-image or img tag */
+@import "css/images.css";
+
+/* typography.css contains text classes */
+@import "css/typography.css";
+
+/* animations.css is for storing animation classes and @keyframes */
+@import "css/animations.css";
+
+/* helpers.css contains helper classes. Keep it always the last import */
+@import "css/helpers.css";

@@ -1,0 +1,87 @@
+/* GLOBAL RESETS */
+/* Switches globally the box-sizing to the more intuitive border-box, 
+   which includes border and padding in width property */
+* {
+    box-sizing: border-box;
+}
+
+/* Removes any browser-opinionated spaces */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+/* Switches font-size to 10px for easier work with rems */
+html {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+/* Responsive font-size */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 499px) {
+    html {
+        font-size: 6px;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 500px) {
+    html {
+        font-size: 7px;
+    }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 8px;
+    }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 9px;
+    }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+/* Uses a more accessible and spacious line-height, refer to theme.css for the value */
+body {
+    line-height: var(--line-height-m);
+}
+
+/* Allows percentage-based heights */
+html,
+body {
+    height: 100%;
+}
+
+/* Removes the unwanted ability to overflow content */
+img,
+picture,
+video,
+canvas,
+svg,
+iframe,
+object {
+    display: block;
+    max-width: 100%;
+}
+
+/* Force links to be of the same color of their parent and turn off
+   the purple text when visited */
+a,
+a:visited {
+    color: currentColor;
+    text-decoration: none;
+}
+
+/* Restores full opacity to placeholders for better color control */
+input::placeholder {
+    opacity: 1;
+}
