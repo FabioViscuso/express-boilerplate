@@ -4,11 +4,11 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 
-/* Assign express to a variable for easier referencing */
+/* Within app we call the top-level function exported by express module */
 const app = express();
 
 /* Set "app" to listen on a specified port */
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 /* Initialize middlewares */
 app.use(bodyParser.urlencoded({ extended: false }));

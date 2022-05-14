@@ -4,8 +4,7 @@
   "description": "Demo project",
   "scripts": {
     "start-frontend": "cd frontend/ && nodemon server.js",
-    "start-backend": "cd backend/ && nodemon server.js",
-    "start-all": "npm run start-frontend | npm run start-backend"
+    "start-backend": "cd backend/ && nodemon server.js --ignore data.json"
   },
   "author": "Fabio Viscuso",
   "license": "MIT",
