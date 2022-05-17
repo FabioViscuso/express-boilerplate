@@ -4,6 +4,15 @@
   "version": "1.0.0",
   "author": "Fabio Viscuso",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FabioViscuso/express-experiment"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
   "scripts": {
     "start": "nodemon server.js --ignore data.json"
   },
@@ -15,5 +24,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1"
+  },
+  "engines": {
+    "node": "17.x"
   }
 }
