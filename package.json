@@ -1,14 +1,14 @@
 {
   "name": "express-experiment",
+  "description": "Demo project for a simple backend",
   "version": "1.0.0",
-  "description": "Demo project",
+  "author": "Fabio Viscuso",
+  "license": "MIT",
   "scripts": {
     "start-frontend": "cd frontend/ && nodemon server.js",
     "start-backend": "cd backend/ && nodemon server.js --ignore data.json",
     "start-all": "npm-run-all --parallel start-frontend start-backend"
   },
-  "author": "Fabio Viscuso",
-  "license": "MIT",
   "devDependencies": {
     "eslint": "^8.15.0",
     "nodemon": "^2.0.16",
