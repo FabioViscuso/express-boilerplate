@@ -23,8 +23,16 @@ app.get("/", (req, res) => res.send("Welcome to the backend server!"));
 
 /* Save path to .json file as a constant */
 const jsonPath = __dirname + "/data.json";
-/* Create an array as temporary DB */
-const basicDB = [];
+/* Create an array as temporary DB and initialize it with
+   the contents of data.json */
+function initializeDB(path) {
+    console.log(path);
+    return fs.readFileSync(path).toString("utf-8");
+}
+
+const basicDB = JSON.parse(initializeDB(jsonPath));
+
+console.log(basicDB);
 
 /* Set POST route */
 app.post("/data", (req, res) => {

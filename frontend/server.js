@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
-const exp = require("constants");
 
 /* Within app we call the top-level function exported by express module */
 const app = express();
@@ -16,10 +15,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require("body-parser").json());
 app.use(cors());
 app.use(express.json());
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 /* Set up the home route via GET */
-app.get("/", (req, res) => res.render("home"));
+app.get("/", (req, res) =>
+    res.sendFile(path.join(__dirname, "public/index.html"))
+);
 
 /* Set up a fallback 404 route */
 app.get("*", (req, res) => {
