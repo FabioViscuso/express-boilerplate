@@ -2,7 +2,6 @@
   "name": "express-experiment",
   "description": "Demo project for a simple backend",
   "repository": "https://github.com/FabioViscuso/express-experiment",
-  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
   "keywords": ["node", "express", "heroku"],
   "image": "heroku/nodejs"
 }
