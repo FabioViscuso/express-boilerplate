@@ -1,5 +1,6 @@
 /* Import express and other dependencies */
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("fs");
@@ -12,9 +13,26 @@ const PORT = process.env.PORT || 8080;
 
 /* Initialize middlewares */
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(require("body-parser").json());
-app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json());
+app.use(cors());
+
+/* Connect to DB, using URL */
+mongoose
+    .connect(
+        process.env.DB_URL ||
+            "mongodb+srv://FViscuso:doubledecker08@cluster0.33f6h.mongodb.net/?retryWrites=true&w=majority",
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }
+    )
+    .then(() => {
+        console.log("Connection to mongoDB successful");
+    })
+    .catch((err) => {
+        console.error("Connection to mongoDB failed: ", err);
+    });
 
 /* Set up the home route via GET */
 app.get("/", (req, res) => res.send("Welcome to the backend server!"));
