@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+require("dotenv").config({ path: "./.env" });
 const fs = require("fs");
 
 /* Within app we call the top-level function exported by express module */
@@ -19,20 +20,42 @@ app.use(cors());
 
 /* Connect to DB, using URL */
 mongoose
-    .connect(
-        process.env.DB_URL ||
-            "mongodb+srv://FViscuso:doubledecker08@cluster0.33f6h.mongodb.net/?retryWrites=true&w=majority",
-        {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        }
-    )
+    .connect(process.env.DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => {
         console.log("Connection to mongoDB successful");
     })
     .catch((err) => {
         console.error("Connection to mongoDB failed: ", err);
     });
+
+/* Define a Schema, the actual structure that holds your data */
+const contactRequestSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    otherNames: Array,
+    phone: Number,
+    email: String,
+    contactMethod: String,
+    job: String,
+    hasAgreedTerms: Boolean,
+});
+/* Define a Model, it will pluralized and de-capitalized automatically inside mongo server */
+const ContactRequest = mongoose.model("ContactRequest", contactRequestSchema);
+/* Create a POST route */
+app.post("/newContact", (req, res) => {
+    /* Save the request body to a constant */
+    const incomingObj = req.body;
+    /* Create an object based on the model */
+    const contactEntry = new ContactRequest({ ...incomingObj });
+    console.log(contactEntry);
+    /* Save in remote DB */
+    contactEntry.save();
+    /* Send back the object */
+    res.send(contactEntry);
+});
 
 /* Set up the home route via GET */
 app.get("/", (req, res) => res.send("Welcome to the backend server!"));
