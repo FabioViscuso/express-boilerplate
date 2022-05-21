@@ -1,12 +1,12 @@
 {
-    "name": "express-experiment",
-    "description": "Demo project for a simple backend",
+    "name": "express-boilerplate",
+    "description": "Boilerplate for quickly building express apps",
     "version": "1.0.0",
     "author": "Fabio Viscuso",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/FabioViscuso/express-experiment"
+        "url": "https://github.com/FabioViscuso/express-boilerplate"
     },
     "keywords": [
         "node",
@@ -14,7 +14,7 @@
         "express"
     ],
     "scripts": {
-        "start-dev": "nodemon index.js --ignore data.json",
+        "start-dev": "nodemon index.js",
         "start": "node index.js"
     },
     "main": "server.js",
@@ -28,8 +28,5 @@
         "cors": "^2.8.5",
         "express": "^4.18.1",
         "mongoose": "^6.3.3"
-    },
-    "engines": {
-        "node": "16.x"
     }
 }

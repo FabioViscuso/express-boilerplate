@@ -1,7 +1,7 @@
 {
-  "name": "express-experiment",
-  "description": "Demo project for a simple backend",
-  "repository": "https://github.com/FabioViscuso/express-experiment",
-  "keywords": ["node", "express", "heroku"],
-  "image": "heroku/nodejs"
+    "name": "express-boilerplate",
+    "description": "Boilerplate for quickly building express apps",
+    "repository": "https://github.com/FabioViscuso/express-experiment",
+    "keywords": ["node", "express", "heroku"],
+    "image": "heroku/nodejs"
 }
