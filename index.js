@@ -82,7 +82,7 @@ app.patch("/contact/update", async (req, res) => {
 /* Updated contact(s) */
 app.patch("/contact/:id/update", async (req, res) => {
     const id = req.params.id;
-    await ContactRequest.findOneAndUpdate(id, req.body[1], {
+    await ContactRequest.findByIdAndUpdate(id, req.body, {
         runValidators: true,
     })
         .then((data) => res.redirect(`/contact/${data._id}`))
