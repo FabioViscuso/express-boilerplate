@@ -2,16 +2,36 @@ const mongoose = require("mongoose");
 
 /* Define a Schema, the actual structure that holds your data */
 const contactRequestSchema = new mongoose.Schema({
-    firstName: { type: String, required: true, trim: true, maxlength: 20 },
-    lastName: { type: String, required: true, trim: true, maxlength: 20 },
+    firstName: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 20
+    },
+    lastName: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 20
+    },
     age: {
         type: Number,
         required: true,
         min: [18, "Age must be > 18"],
         max: [150, "Age is too high"],
     },
-    phone: { type: String, required: true, trim: true, maxlength: 16 },
-    email: { type: String, required: true, trim: true, maxlength: 40 },
+    phone: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 16
+    },
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 40
+    },
     contactMethod: {
         type: String,
         required: true,
@@ -28,8 +48,15 @@ const contactRequestSchema = new mongoose.Schema({
         default: "no-message",
         trim: true,
     },
-    hasAgreedTerms: { type: Boolean, required: true },
-    hasBeenContacted: { type: Boolean, required: false, default: false },
+    hasAgreedTerms: {
+        type: Boolean,
+        required: true
+    },
+    hasBeenContacted: {
+        type: Boolean,
+        required: false,
+        default: false
+    },
 });
 
 /* A mongoose "virtual" is, indeed, a virtual property that doesn't really
