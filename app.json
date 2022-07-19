@@ -1,7 +1,7 @@
 {
-    "name": "express-boilerplate",
-    "description": "Boilerplate for quickly building express apps",
-    "repository": "https://github.com/FabioViscuso/express-experiment",
-    "keywords": ["node", "express", "heroku"],
+    "name": "express-mongodb-boilerplate",
+    "description": "Boilerplate for building express apps with express & mongoDB",
+    "repository": "https://github.com/FabioViscuso/express-boilerplate",
+    "keywords": ["node", "express", "heroku", "mongodb"],
     "image": "heroku/nodejs"
 }

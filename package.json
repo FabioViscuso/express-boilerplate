@@ -1,6 +1,6 @@
 {
-    "name": "express-boilerplate",
-    "description": "Boilerplate for quickly building express apps",
+    "name": "express-mongodb-boilerplate",
+    "description": "Boilerplate for building express apps with express & mongoDB",
     "version": "1.0.0",
     "author": "Fabio Viscuso",
     "license": "MIT",
