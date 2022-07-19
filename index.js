@@ -1,22 +1,15 @@
+/* Add .env support */
+require("dotenv").config({ path: "./.env" });
+
 /* Import express and other dependencies */
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-/* Add .env support */
-require("dotenv").config({ path: "./.env" });
-
 /* Within app we call the top-level function exported by express module */
 const app = express();
 
-/* Set "app" to listen on a specified port */
-const PORT = process.env.PORT || 8080;
-
-/* Import model(s) */
-const ContactRequest = require("./models/contactRequest");
-
 /* Initialize middleware */
-
 /* parse application/x-www-form-urlencoded */
 app.use(express.urlencoded({ extended: true }));
 /* parse application/json */
@@ -24,7 +17,10 @@ app.use(express.json());
 /* enable cors */
 app.use(cors());
 
-/* Connect to DB, using URL */
+/* Import model(s) */
+const ContactRequest = require("./models/contactRequest");
+
+/* Connect to DB */
 mongoose
     .connect(process.env.DB_URL, {
         useNewUrlParser: true,
@@ -38,7 +34,7 @@ mongoose
     });
 
 /* Set up the home route via GET */
-app.get("/", (req, res) => res.send("Welcome to the backend server!"));
+app.get("/", (req, res) => res.send("Server online"));
 
 /*---------------- CRUD ENDPOINTS ----------------*/
 
@@ -97,4 +93,5 @@ app.delete("/contact/delete", async (req, res) => {
 });
 
 /* Launch the server on specified PORT and print a log */
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
