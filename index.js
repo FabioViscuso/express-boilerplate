@@ -48,7 +48,7 @@ app.post("/contact/new", async (req, res) => {
         .save()
         /* Send back the object for logging */
         .then((data) => res.redirect(`/contact/${data._id}`))
-        .catch((err) => console.log(err));
+        .catch((err) => { console.log(err.message); res.send(err.message) });
 });
 
 /* Read single contact by ID */
@@ -56,14 +56,14 @@ app.get("/contact/:id", async (req, res) => {
     const id = req.params.id;
     await ContactRequest.findById(id)
         .then((result) => res.send(result))
-        .catch((err) => console.log(err.message));
+        .catch((err) => { console.log(err.message); res.send(err.message) });
 });
 
 /* Read contacts */
 app.get("/contact", async (req, res) => {
     await ContactRequest.find({})
         .then((result) => res.send(result))
-        .catch((err) => console.log(err.message));
+        .catch((err) => { console.log(err.message); res.send(err.message) });
 });
 
 /* Updated contact(s) */
@@ -72,7 +72,7 @@ app.patch("/contact/update", async (req, res) => {
         runValidators: true,
     })
         .then((data) => res.redirect(`/contact/${data._id}`))
-        .catch((err) => res.send(err));
+        .catch((err) => { console.log(err.message); res.send(err.message) });
 });
 
 /* Updated contact(s) */
@@ -82,14 +82,14 @@ app.patch("/contact/:id/update", async (req, res) => {
         runValidators: true,
     })
         .then((data) => res.redirect(`/contact/${data._id}`))
-        .catch((err) => res.send(err));
+        .catch((err) => { console.log(err.message); res.send(err.message) });
 });
 
 /* Delete contact(s) */
 app.delete("/contact/delete", async (req, res) => {
     await ContactRequest.findOneAndDelete(req.body)
         .then(() => res.redirect(`/contact`))
-        .catch((err) => res.send(err));
+        .catch((err) => { console.log(err.message); res.send(err.message) });
 });
 
 /* Launch the server on specified PORT and print a log */
